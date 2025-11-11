@@ -39,6 +39,7 @@ Diferente de grandes plataformas comerciais (como Amazon, Americanas, Magalu, Su
 ---
 
 ## 🧱 Estrutura do Projeto (Exemplo)
+```bash
 bluevelvet-music-store/
 │
 ├── src/
@@ -59,8 +60,7 @@ bluevelvet-music-store/
 ├── pom.xml # Arquivo de configuração do Maven
 ├── README.md
 └── .gitignore
-
----
+```
 
 ## ⚙️ Instalação e Configuração
 
@@ -80,7 +80,7 @@ Antes de começar, você precisará ter instalado:
 ```bash
 git clone https://github.com/seuusuario/bluevelvet-music-store.git
 cd bluevelvet-music-store
-
+```
 #### 2️⃣ Configure o banco de dados
 #### 3️⃣ Instale as dependências
 #### 4️⃣ Execute o projeto
