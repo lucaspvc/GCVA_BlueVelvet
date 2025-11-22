@@ -1,0 +1,20 @@
+services:
+  database:
+    image: mysql:latest
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'Abner'
+      MYSQL_PASSWORD: '123456'
+      MYSQL_ROOT_PASSWORD: 'root-pass'
+    ports:
+       - '3306:3306'
+    expose:
+       - '3306'
+    volumes:
+       - mydb:/var/lib/mysql
+       - ./src/main/resources/static/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+       - ./src/main/resources/static/a.sql:/docker-entrypoint-initdb.d/a.sql
+
+volumes:
+  mydb:

@@ -61,7 +61,7 @@ public class ProductController {
         return ResponseEntity.ok(assembleProductResponseMock(id));
 
     }
-    
+
 
     //Remove
     private static ProductResponse assembleProductResponseMock(Long id) {
