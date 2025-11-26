@@ -33,10 +33,12 @@ dependencies {
 
 
 	compileOnly 'org.projectlombok:lombok'
-
 	annotationProcessor 'org.projectlombok:lombok'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation("org.junit.jupiter:junit-jupiter:6.1.0-M1")
+
+
 
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
