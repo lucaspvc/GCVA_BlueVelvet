@@ -7,6 +7,7 @@ import lombok.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -14,12 +15,13 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(schema = "db", name = "product")
+@Table(name = "product")
 public class Product implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     @Column(name = "short_description")
@@ -29,7 +31,10 @@ public class Product implements Serializable {
     private String fullDescription;
 
     private String brand;
-    private String category;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @Column(name = "list_price")
     private BigDecimal list_price;
@@ -37,6 +42,7 @@ public class Product implements Serializable {
     private BigDecimal discount;
 
     private BigDecimal cost;
+
     private boolean enabled;
 
     @Column(name = "in_stock")
@@ -48,8 +54,9 @@ public class Product implements Serializable {
     @Column(name = "update_time")
     private LocalDateTime updateTime;
 
+    @Embedded
+    private ProductDimension dimension;
 
-
-
-
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProductDetail> details;
 }

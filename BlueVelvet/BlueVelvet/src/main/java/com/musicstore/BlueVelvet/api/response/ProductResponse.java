@@ -1,7 +1,5 @@
 package com.musicstore.BlueVelvet.api.response;
 
-import com.musicstore.BlueVelvet.api.resquest.ProductDetailRequest;
-import com.musicstore.BlueVelvet.api.resquest.ProductDimensionRequest;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -18,17 +16,17 @@ public class ProductResponse {
     private Long id;
     //UID
     private String name;
-    private String shorDescription;
+    private String shortDescription;
     private String fullDescription;
     private String brand;
-    private String category;
-    private BigDecimal listPrice;
-    private BigDecimal discout;
+    private CategoryResponse category;
+    private BigDecimal list_price;
+    private BigDecimal discount;
     private Boolean isEnabled;
     private Boolean inStock;
     private LocalDateTime creationTime;
     private LocalDateTime updateTime;
-    private ProductDimensionRequest dimensionRequest;
+    private ProductDimensionResponse dimension;
     private BigDecimal cost;
-    private List<ProductDetailRequest> details;
+    private List<ProductDetailResponse> details;
 }

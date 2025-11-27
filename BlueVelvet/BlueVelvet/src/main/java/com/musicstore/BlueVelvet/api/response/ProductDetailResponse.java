@@ -1,15 +1,14 @@
-package com.musicstore.BlueVelvet.api.resquest;
+package com.musicstore.BlueVelvet.api.response;
 
 import lombok.*;
 
 @Getter
 @Setter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDetailRequest {
+public class ProductDetailResponse {
     private String name;
     private String value;
-
 }
+

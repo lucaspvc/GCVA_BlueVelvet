@@ -1,12 +1,11 @@
 package com.musicstore.BlueVelvet.api.controller;
 
 import com.musicstore.BlueVelvet.api.response.ProductResponse;
-import com.musicstore.BlueVelvet.api.resquest.ProductRequest;
+import com.musicstore.BlueVelvet.api.request.ProductRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

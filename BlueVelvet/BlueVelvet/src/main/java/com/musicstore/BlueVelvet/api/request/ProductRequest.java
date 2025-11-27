@@ -1,4 +1,4 @@
-package com.musicstore.BlueVelvet.api.resquest;
+package com.musicstore.BlueVelvet.api.request;
 
 import lombok.*;
 
@@ -17,15 +17,15 @@ public class ProductRequest {
     private String shorDescription;
     private String fullDescription;
     private String brand;
-    private String category;
+    private Long categoryId;
     private BigDecimal listPrice;
-    private BigDecimal discout;
+    private BigDecimal discount;
     private Boolean isEnabled;
     private Boolean inStock;
     private LocalDateTime creationTime;
     private LocalDateTime updateTime;
-    private ProductDimensionRequest dimensionRequest;
+    private ProductDimensionRequestDTO dimensionRequest;
     private BigDecimal cost;
-    private List<ProductDetailRequest> details;
+    private List<ProductDetailRequestDTO> details;
 
 }
