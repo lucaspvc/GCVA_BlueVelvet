@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Log4j2
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/category")
 public class CategoryController {
 
     private final CategoryService categoryService;
 
     // US-0907: Listar categorias (paginado, apenas raízes, 5 por página padrão)
     @GetMapping
-    @Operation(summary = "List all root categories", description = "Fetch top-level categories with pagination (default 5 per page). Sub-categories are nested in the response.")
+    @Operation(summary = "List all   categories", description = "Fetch top-level categories with pagination (default 5 per page). Sub-categories are nested in the response.")
     public ResponseEntity<Page<CategoryResponse>> getAllCategories(
             @PageableDefault(page = 0, size = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable
     ) {
