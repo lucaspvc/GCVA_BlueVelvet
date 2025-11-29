@@ -1,48 +1,48 @@
 package com.musicstore.BlueVelvet.api.controller;
 
 import com.musicstore.BlueVelvet.api.response.ProductResponse;
-import com.musicstore.BlueVelvet.api.resquest.ProductRequest;
+import com.musicstore.BlueVelvet.api.request.ProductRequest;
+import com.musicstore.BlueVelvet.api.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
+@RequiredArgsConstructor
 @Log4j2
 @RestController
 @RequestMapping("/products")
 public class ProductController {
 
+    private final ProductService productService;
     @GetMapping("/{id}")
     @Operation(summary = "Get product by id", description = "Get a product from the Blue Velvet Music Store")
     public ResponseEntity<ProductResponse> getProducts(@PathVariable Long id) {
         log.info("Request received to fetch a product by id: " + id);
-        //mock
-        return ResponseEntity.ok(assembleProductResponseMock(id));
+        ProductResponse response = productService.getProductById(id);
+        return ResponseEntity.ok(response);
     }
+
     //Todo: Add pageble from spring date
     @GetMapping
-    @Operation(summary = "Get product by id", description = "Get a product from the Blue Velvet Music Store")
-
+    @Operation(summary = "Get all products", description = "Fetch all products from the Blue Velvet Music Store")
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
-        log.info("Request received to fetch all products");
-        return ResponseEntity.ok(List.of(
-                assembleProductResponseMock(1L),
-                assembleProductResponseMock(2L),
-                assembleProductResponseMock(3L)
-                ));
+        List<ProductResponse> response = productService.getAllProducts();
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete product by id", description = "Delete a product from the Blue Velvet Music Store")
     public ResponseEntity<Void> deleteProductBtId(@PathVariable long id){
         log.info("Request received to delete a product by id: " + id);
+        productService.deleteProductById(id);
 
-        return ResponseEntity.ofNullable(null);
+        return ResponseEntity.noContent().build();
 
     }
 

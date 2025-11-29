@@ -1,15 +1,13 @@
-package com.musicstore.BlueVelvet.api.resquest;
-
+package com.musicstore.BlueVelvet.api.response;
 
 import lombok.*;
 
 @Getter
 @Setter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDimensionRequest {
+public class ProductDimensionResponse {
     private Float length;
     private Float width;
     private Float height;
