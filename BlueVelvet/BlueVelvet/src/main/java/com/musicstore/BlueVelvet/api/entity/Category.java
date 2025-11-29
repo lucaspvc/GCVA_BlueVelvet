@@ -3,37 +3,38 @@ package com.musicstore.BlueVelvet.api.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@Builder
+@Table(name = "category")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(
-        name = "category",
-        uniqueConstraints = @UniqueConstraint(columnNames = "name")
-)
+@Builder
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(length = 255)
-    private String image;   // file name only
+    private String image;
 
-    private boolean enabled = true;
+    private boolean enabled;
 
-    // Self-referencing relationship
-    @ManyToOne
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
-    @OneToMany(mappedBy = "parent")
-    private List<Category> children;
+
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<Category> children = new ArrayList<>();
+
+
 }
