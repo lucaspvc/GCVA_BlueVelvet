@@ -7,7 +7,9 @@ import com.musicstore.BlueVelvet.api.response.ProductDetailResponse;
 import com.musicstore.BlueVelvet.api.response.ProductDimensionResponse;
 import com.musicstore.BlueVelvet.api.response.ProductResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 
@@ -81,4 +83,19 @@ public class ProductService {
               .map(this::mapToProductResponse)
                 .toList();
     }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public static class ResourceNotFoundException extends RuntimeException {
+        public ResourceNotFoundException(String message) {
+            super(message);
+        }
+    }
+
+
+    public void deleteProductById(Long id) {
+        Product product = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found with id: " + id));
+        repository.delete(product);
+    }
+
 }

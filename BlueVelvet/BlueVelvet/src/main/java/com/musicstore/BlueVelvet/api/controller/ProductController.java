@@ -40,8 +40,9 @@ public class ProductController {
     @Operation(summary = "Delete product by id", description = "Delete a product from the Blue Velvet Music Store")
     public ResponseEntity<Void> deleteProductBtId(@PathVariable long id){
         log.info("Request received to delete a product by id: " + id);
+        productService.deleteProductById(id);
 
-        return ResponseEntity.ofNullable(null);
+        return ResponseEntity.noContent().build();
 
     }
 
