@@ -80,8 +80,6 @@ src/main/java/com/musicstore/BlueVelvet/
     ├── application.properties
     ├── static/
     ├── templates/
-    ├── schema.sql
-    └── data.sql
 ```
 
 ## Instalação e Configuração
