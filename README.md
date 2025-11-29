@@ -1,91 +1,113 @@
 # 🎵 BlueVelvet Music Store
 
-## 🧩 Nome do Projeto
+##  Nome do Projeto
 **BlueVelvet Music Store**
 
 ---
 
-## 📖 Descrição do Projeto
-A **BlueVelvet Music Store** é uma aplicação web desenvolvida para uma empresa fictícia brasileira chamada *Blue Velvet*.  
-A loja tem como objetivo **vender músicas, vinis, CDs, mp3s e produtos relacionados a artistas independentes** — como camisetas, bonés, livros e acessórios.  
+##  Descrição do Projeto
+A **BlueVelvet Music Store** é uma aplicação web voltada para venda de produtos musicais. O objetivo principal é desenvolver habilidades em novas tecnologias, boas práticas arquiteturais e gestão de requisitos funcionais e não funcionais.
 
-Diferente de grandes plataformas comerciais (como Amazon, Americanas, Magalu, Submarino e Netshoes), a BlueVelvet é **gratuita, colaborativa e de código aberto**, incentivando o apoio direto a artistas fora do mainstream.
-
----
-
-## 🧰 Ferramentas Utilizadas
-- **IDE:** IntelliJ IDEA Ultimate (sugestão)  
-- **Versionamento:** Git + GitHub  
-- **Gerenciamento Ágil:** Jira, KanbanFlow ou GitHub Projects  
-- **Testes de API:** Postman ou Insomnia  
-- **Banco de Dados:** MySQL (produção) / H2 (desenvolvimento)
+A BlueVelvet é uma plataforma **E-commerce gratuita, colaborativa e open source**, criada para incentivar e apoiar diretamente artistas fora do mainstream.
 
 ---
 
-## ⚙️ Tecnologias Principais
-- **Spring Boot** — Framework principal para o backend Java  
-- **Spring Data JPA** — Persistência de dados com Hibernate  
-- **Spring MVC / REST** — Criação de endpoints RESTful  
-- **Thymeleaf** — Renderização de páginas no lado servidor (ou uso de frontend separado em HTML/CSS/JS)  
-- **Maven** — Gerenciamento de dependências e build  
-- **MySQL** — Banco de dados relacional principal  
+##  Ferramentas Utilizadas
+- **IDE:** IntelliJ IDEA Ultimate  
+- **Controle de Versão:** Git + GitHub  
+- **Gerenciamento Ágil:** Jira  
+- **Testes de API:** Swagger e Postman  
+- **Banco de Dados:** Supabase / PostgreSQL  
 
 ---
 
-## 💻 Linguagens Utilizadas
-- **Java 17+** (backend)
-- **HTML5 / CSS3 / JavaScript** (frontend básico)
+##  Tecnologias e Frameworks
+- **Spring Boot** — Framework principal do backend  
+- **Spring Data JPA** — Persistência com Hibernate  
+- **Spring MVC / REST** — Criação de APIs RESTful  
+- **Thymeleaf** — Renderização de páginas (opcional caso haja frontend separado)  
+- **Maven** — Gerenciamento de dependências  
+- **PostgreSQL** — Banco de dados relacional  
+- **React + Vite** — Frontend moderno e performático  
 
 ---
 
-## 🧱 Estrutura do Projeto (Exemplo)
+##  Linguagens Utilizadas
+- **Java 17+**  
+- **JavaScript (React + Vite)**  
+
+---
+
+## 📁 Estrutura do Projeto
+
 ```bash
-bluevelvet-music-store/
+src/main/java/com/musicstore/BlueVelvet/
 │
-├── src/
-│ ├── main/
-│ │ ├── java/com/bluevelvet/
-│ │ │ ├── controllers/ # Controladores REST / MVC
-│ │ │ ├── models/ # Entidades JPA (Product, Artist, User, etc.)
-│ │ │ ├── repositories/ # Interfaces do Spring Data JPA
-│ │ │ ├── services/ # Regras de negócio
-│ │ │ └── BlueVelvetMusicStoreApplication.java
-│ │ └── resources/
-│ │ ├── static/ # Arquivos estáticos (CSS, JS, imagens)
-│ │ ├── templates/ # Páginas Thymeleaf
-│ │ ├── application.properties
-│ │ └── data.sql / schema.sql
-│ └── test/ # Testes automatizados
+├── api/
+│   ├── controller/
+│   │   ├── CategoryController.java
+│   │   └── ProductController.java
+│   │
+│   ├── entity/
+│   │   ├── Category.java
+│   │   ├── Product.java
+│   │   ├── ProductDetail.java
+│   │   └── ProductDimension.java
+│   │
+│   ├── repository/
+│   │   ├── CategoryRepository.java
+│   │   └── ProductRepository.java
+│   │
+│   ├── request/
+│   │   ├── CategoryRequest.java
+│   │   ├── ProductRequest.java
+│   │   ├── ProductDetailRequestDTO.java
+│   │   └── ProductDimensionRequestDTO.java
+│   │
+│   ├── response/
+│   │   ├── CategoryResponse.java
+│   │   ├── ProductResponse.java
+│   │   ├── ProductDetailResponse.java
+│   │   └── ProductDimensionResponse.java
+│   │
+│   ├── service/
+│   │   ├── CategoryService.java
+│   │   └── ProductService.java
+│   │
+│   └── BlueVelvetApplication.java
 │
-├── pom.xml # Arquivo de configuração do Maven
-├── README.md
-└── .gitignore
+└── resources/
+    ├── application.properties
+    ├── static/
+    ├── templates/
+    ├── schema.sql
+    └── data.sql
 ```
 
-## ⚙️ Instalação e Configuração
+## Instalação e Configuração
 
-### 🪶 Pré-requisitos
+### Pré-requisitos
 Antes de começar, você precisará ter instalado:
 - [Java 17+](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-- [Maven](https://maven.apache.org/download.cgi)
-- [MySQL](https://dev.mysql.com/downloads/mysql/) (opcional, pode usar H2)
+- [Gadle](https://gadle.apache.org/download.cgi)
+- [PostGree ](https://dev.mysql.com/downloads/mysql/) (opcional, pode usar H2)
 - [Git](https://git-scm.com/)
 - IDE (IntelliJ, Eclipse, VS Code ou outra de sua preferência)
 
 ---
 
-### 🧭 Passos para rodar o projeto localmente
+### Passoa de compilação
 
-#### 1️⃣ Clone o repositório
+#### 1. Clone o repositório
 ```bash
 git clone https://github.com/seuusuario/bluevelvet-music-store.git
 cd bluevelvet-music-store
 ```
-#### 2️⃣ Configure o banco de dados
-#### 3️⃣ Instale as dependências
-#### 4️⃣ Execute o projeto
+#### 2. Configure o banco de dados
+#### 3. Instale as dependências
+#### 4. Execute o projeto
 
-## 🌍 Ambiente de Produção
+##  Ambiente de Produção
 Pode ser implantado em qualquer nuvem gratuita, como:
     Render
     Railway
@@ -93,11 +115,11 @@ Pode ser implantado em qualquer nuvem gratuita, como:
     Fly.io
     Heroku (caso disponível)
 
-## 👥 Contribuição
+##  Time de Desenvolvimento
+- Abner Gomes Guimarães
+- Lucas Pessoa Oliveira Alves
+- Heloisa Pimentel De Souza
+- Jorran Luka Andrade dos Santos
+- Pamela Oliveira Silva
 
-## 🧾 Licença
-Este projeto é livre e de código aberto.
-
-## 💙 Créditos
-
-BlueVelvet Music Store — projeto acadêmico e open source criado para fins de estudo e prática de desenvolvimento com Java Spring Boot e arquitetura em camadas.
+---
